@@ -1,65 +1,134 @@
-```html
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <p class="section-description">
-        Here are some of the projects I have worked on.
-    </p>
+from pathlib import Path
+html = r'''
+Karpaga Senthil Manikandan P | Data Analyst Portfolio :root { --bg: #0b1020; --panel: rgba(255,255,255,.065); --text: #f5f7ff; --muted: #b7bfd8; --cyan: #55e6ff; --violet: #a78bfa; --pink: #ff83c7; --line: rgba(255,255,255,.13); } * { box-sizing: border-box; } html { scroll-behavior: smooth; } body { margin: 0; color: var(--text); font-family: Inter, "Segoe UI", Arial, sans-serif; background: radial-gradient(ellipse at 10% 0%, rgba(86, 91, 255, .20), transparent 38%), radial-gradient(ellipse at 90% 15%, rgba(0, 217, 255, .12), transparent 32%), var(--bg); line-height: 1.65; } a { color: inherit; text-decoration: none; } .wrap { width: min(1120px, 90%); margin: auto; } header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(11,16,32,.82); border-bottom: 1px solid var(--line); } .nav { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 20px; } .brand { font-weight: 800; letter-spacing: .5px; } .brand span { color: var(--cyan); } nav { display: flex; gap: 22px; flex-wrap: wrap; } nav a { color: var(--muted); font-size: .92rem; transition: color .2s; } nav a:hover { color: var(--cyan); } .hero { min-height: 78vh; display: grid; align-items: center; padding: 80px 0 70px; } .hero-grid { display: grid; grid-template-columns: 1.5fr .8fr; gap: 48px; align-items: center; } .eyebrow { color: var(--cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; } h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.06; margin: 18px 0; letter-spacing: -2px; } h1 .gradient, .gradient { background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; } .hero p { color: var(--muted); max-width: 660px; font-size: 1.08rem; } .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; } .btn { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 999px; padding: 11px 19px; font-weight: 700; transition: transform .2s, border-color .2s; } .btn:hover { transform: translateY(-2px); border-color: var(--cyan); } .btn.primary { background: linear-gradient(100deg, #5ee7f8, #a78bfa); color: #11142a; border: 0; } .orb-card { padding: 28px; border-radius: 28px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(167,139,250,.18), rgba(85,230,255,.07)); box-shadow: 0 20px 80px rgba(0,0,0,.25); } .orb { width: 190px; height: 190px; margin: 0 auto 22px; border-radius: 50%; display: grid; place-items: center; font-size: 4rem; font-weight: 900; color: #11142a; background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink)); box-shadow: 0 0 65px rgba(85,230,255,.18); } .orb-card h3 { text-align: center; margin: 0 0 4px; } .orb-card p { text-align: center; font-size: .93rem; margin: 0; } section { padding: 76px 0; } .section-head { margin-bottom: 28px; } .section-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 5px 0; } .section-head p { color: var(--muted); margin: 0; } .panel, .card { border: 1px solid var(--line); background: var(--panel); border-radius: 20px; padding: 24px; } .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; } .about-grid p { color: var(--muted); margin-top: 0; } .quick-facts { display: grid; gap: 12px; } .fact { padding: 15px 17px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.035); } .fact strong { display: block; color: var(--cyan); font-size: .8rem; text-transform: uppercase; letter-spacing: 1px; } .fact span { color: var(--text); } .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; } .card h3 { margin: 0 0 12px; } .card p, .card li { color: var(--muted); } .chips { display: flex; gap: 8px; flex-wrap: wrap; } .chip { font-size: .86rem; padding: 7px 11px; border: 1px solid rgba(85,230,255,.22); background: rgba(85,230,255,.08); color: #dffaff; border-radius: 999px; } .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; } .project { position: relative; overflow: hidden; transition: transform .2s, border-color .2s; } .project:hover { transform: translateY(-4px); border-color: rgba(85,230,255,.5); } .project-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; } .project-icon { width: 46px; height: 46px; display: grid; place-items: center; font-size: 1.4rem; border-radius: 14px; background: linear-gradient(135deg, rgba(85,230,255,.2), rgba(167,139,250,.22)); } .project small { color: var(--cyan); } .project h3 { margin: 8px 0; } .project p { margin-bottom: 18px; } .timeline { display: grid; gap: 16px; } .timeline-item { display: grid; grid-template-columns: 16px 1fr; gap: 15px; } .dot { width: 12px; height: 12px; margin-top: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 18px rgba(85,230,255,.5); } .timeline-item h3 { margin: 0; } .timeline-item p { color: var(--muted); margin: 4px 0 0; } .meta { color: var(--violet); font-size: .9rem; } .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; } .cert-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; } .cert { display: flex; gap: 12px; align-items: center; padding: 15px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.04); } .cert-icon { color: var(--cyan); font-size: 1.25rem; } .contact-box { text-align: center; padding: 38px; border-radius: 25px; border: 1px solid var(--line); background: linear-gradient(120deg, rgba(85,230,255,.10), rgba(167,139,250,.12), rgba(255,131,199,.08)); } .contact-box p { color: var(--muted); } footer { padding: 26px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; } .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; } @media (max-width: 800px) { .hero-grid, .about-grid, .skills-grid, .projects-grid, .edu-grid { grid-template-columns: 1fr; } .hero { min-height: auto; padding-top: 58px; } .orb-card { max-width: 420px; } nav { gap: 12px; justify-content: flex-end; } nav a { font-size: .82rem; } .cert-list { grid-template-columns: 1fr; } h1 { letter-spacing: -1px; } } @media (max-width: 520px) { .nav { align-items: flex-start; flex-direction: column; padding: 15px 0; } nav { justify-content: flex-start; } section { padding: 56px 0; } .panel, .card { padding: 19px; } .contact-box { padding: 26px 18px; } } 
+SENTHIL. AboutSkillsProjects ExperienceEducationContact 
 
-    <div class="project-container">
+Data Analyst · Portfolio
+Hi, I'm
+Karpaga Senthil
+Manikandan P
+Electronics and Communication Engineering graduate building practical skills in data analytics, Python, SQL, Excel, and Power BI. Interested in turning data into clear insights that support better decisions.
+Explore Projects ↗ Contact Me LinkedIn ↗ 
+PS
+Data Analyst
+Python · SQL · Excel · Power BI
 
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3>Data Analysis Project</h3>
-            <p>
-                Analyzed data using Python, Excel, and Power BI
-                to identify trends and generate useful insights.
-            </p>
-            <p><strong>Technologies:</strong> Python, Excel, Power BI</p>
-            <a href="#" target="_blank" class="project-btn">
-                View Project
-            </a>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-            <h3>Machine Learning Project</h3>
-            <p>
-                Developed a machine learning model to analyze
-                datasets and make predictions.
-            </p>
-            <p><strong>Technologies:</strong> Python, Pandas, Scikit-learn</p>
-            <a href="#" target="_blank" class="project-btn">
-                View Project
-            </a>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-            <h3>AI and Deep Learning Project</h3>
-            <p>
-                Built a neural network model to learn patterns
-                from data and classify input samples.
-            </p>
-            <p><strong>Technologies:</strong> Python, TensorFlow, Keras</p>
-            <a href="#" target="_blank" class="project-btn">
-                View Project
-            </a>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card">
-            <h3>Clothing Store Website</h3>
-            <p>
-                Designed a clothing website where customers can
-                explore collections and customize T-shirt designs.
-            </p>
-            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-            <a href="#" target="_blank" class="project-btn">
-                View Project
-            </a>
-        </div>
-
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">A little about me</div><h2>About <span class="gradient">Me</span></h2></div>
+    <div class="about-grid">
+      <div class="panel">
+        <p>I'm an Electronics and Communication Engineering graduate from SRM TRP Engineering College, with hands-on learning in Data Science and Generative AI. My technical interests include data cleaning, exploratory data analysis, visualization, and reporting.</p>
+        <p>I enjoy learning through projects and using analytical thinking to explore data, identify patterns, and communicate findings clearly. I'm seeking an entry-level Data Analyst opportunity where I can keep learning and contribute to a data-driven team.</p>
+      </div>
+      <div class="quick-facts">
+        <div class="fact"><strong>Location</strong><span>Chennai, Tamil Nadu</span></div>
+        <div class="fact"><strong>Focus</strong><span>Data Analytics & Business Intelligence</span></div>
+        <div class="fact"><strong>Learning</strong><span>Data Science & Generative AI</span></div>
+      </div>
     </div>
+  </div>
 </section>
-```
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">What I work with</div><h2>Technical <span class="gradient">Skills</span></h2></div>
+    <div class="skills-grid">
+      <article class="card"><h3>Programming & Database</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">MySQL</span></div></article>
+      <article class="card"><h3>Data Analytics</h3><div class="chips"><span class="chip">Data Cleaning</span><span class="chip">EDA</span><span class="chip">Statistics</span><span class="chip">Reporting</span></div></article>
+      <article class="card"><h3>Visualization & Tools</h3><div class="chips"><span class="chip">Excel</span><span class="chip">Power BI</span><span class="chip">Dashboards</span><span class="chip">MySQL Workbench</span><span class="chip">VS Code</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">Things I've built</div><h2>Featured <span class="gradient">Projects</span></h2><p>Project summaries based on my resume.</p></div>
+    <div class="projects-grid">
+      <article class="card project">
+        <div class="project-top"><div class="project-icon">📊</div><small>01 / DATA ANALYTICS</small></div>
+        <h3>Food Delivery Data Analysis</h3>
+        <p>Analyzed food delivery data to explore order trends, delivery patterns, and business insights. Worked with data cleaning, analysis, and visualization across the analytics workflow.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Excel</span><span class="chip">Power BI</span></div>
+      </article>
+      <article class="card project">
+        <div class="project-top"><div class="project-icon">💳</div><small>02 / PYTHON</small></div>
+        <h3>Mobile Recharge Billing System</h3>
+        <p>Developed a Python application for SIM and recharge-plan selection with input validation, plan details, GST calculation, and automated billing using object-oriented programming.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">OOP</span><span class="chip">Input Validation</span></div>
+      </article>
+      <article class="card project">
+        <div class="project-top"><div class="project-icon">🌱</div><small>03 / ECE PROJECT</small></div>
+        <h3>Smart Irrigation Sensor Interface</h3>
+        <p>Designed a dynamic comparator-based sensor interface for smart irrigation applications, focusing on sensor signal processing and efficient monitoring for irrigation control.</p>
+        <div class="chips"><span class="chip">Tanner</span><span class="chip">Sensor Interface</span><span class="chip">Smart Irrigation</span></div>
+      </article>
+      <article class="card project">
+        <div class="project-top"><div class="project-icon">🧠</div><small>04 / DESKTOP APP</small></div>
+        <h3>Python Quiz Application</h3>
+        <p>Developed a GUI-based quiz application with user registration, login, multiple difficulty levels, multiple-choice questions, score calculation, and result display.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Tkinter</span><span class="chip">GUI</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">Practical exposure</div><h2>Internship <span class="gradient">Experience</span></h2></div>
+    <div class="panel timeline">
+      <div class="timeline-item">
+        <span class="dot"></span><div><h3>FA Test Engineer Intern</h3><div class="meta">Syrma SGS Technology Limited · MEPZ, Tambaram, Tamil Nadu</div><p>Assisted in functional testing, validation, and troubleshooting of electronic products. Gained exposure to quality inspection and testing procedures in electronics manufacturing.</p></div>
+      </div>
+      <div class="timeline-item">
+        <span class="dot"></span><div><h3>Telecom Technologies Intern</h3><div class="meta">BSNL · Tiruchirappalli, Tamil Nadu</div><p>Gained practical exposure to telecom equipment, network services, and communication systems. Observed telecom operations, maintenance, and basic troubleshooting practices.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head"><div class="eyebrow">Learning journey</div><h2>Education & <span class="gradient">Certifications</span></h2></div>
+    <div class="edu-grid">
+      <article class="card">
+        <h3>BE — Electronics and Communication Engineering</h3>
+        <div class="meta">SRM TRP Engineering College · Trichy</div>
+        <p>2022–2026</p>
+        <p><strong>CGPA:</strong> 7.2</p>
+      </article>
+      <article class="card">
+        <h3>Additional Learning</h3>
+        <div class="meta">Besant Technologies · Siruseri</div>
+        <p>Data Science & Generative AI</p>
+        <p>Hands-on learning in Data Analytics, Python, SQL, Excel, Power BI, and Generative AI.</p>
+      </article>
+    </div>
+    <div style="height:20px"></div>
+    <div class="cert-list">
+      <div class="cert"><span class="cert-icon">✦</span><span>Python Programming Certification</span></div>
+      <div class="cert"><span class="cert-icon">✦</span><span>SQL Certification</span></div>
+      <div class="cert"><span class="cert-icon">✦</span><span>Power BI Certification</span></div>
+      <div class="cert"><span class="cert-icon">✦</span><span>NCC — B & C Certificate</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div class="eyebrow">Let's connect</div>
+      <h2>Have an opportunity in mind?</h2>
+      <p>I'm interested in entry-level Data Analyst opportunities and connecting with people working with data.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn primary" href="mailto:karpagasenthil97@gmail.com">✉ karpagasenthil97@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/karpaga-senthil-manikandan-p-b9a120339/" target="_blank" rel="noopener noreferrer">View LinkedIn ↗</a>
+      </div>
+      <p>Chennai, Tamil Nadu · 9087729975</p>
+    </div>
+  </div>
+</section>
+
+© Karpaga Senthil Manikandan P Designed with curiosity and data in mind. 
+document.getElementById("year").textContent = new Date().getFullYear(); '''
+path = Path("/mnt/data/index.html") path.write_text(html, encoding="utf-8") print(f"Created {path} ({path.stat().st_size} bytes)")
