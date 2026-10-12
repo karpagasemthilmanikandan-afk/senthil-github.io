@@ -1,563 +1,96 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karpaga Senthil Manikandan | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Karpaga Senthil Manikandan P - Data Analyst Portfolio">
+<title>Karpaga Senthil Manikandan P | Data Analyst Portfolio</title>
+<style>
+:root {
+  --bg: #080d1c;
+  --panel: #111a30;
+  --text: #f5f7ff;
+  --muted: #b7c2df;
+  --cyan: #55e6ff;
+  --violet: #9b7bff;
+  --pink: #ff83c7;
+}
 
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #f8fafc;
-            line-height: 1.7;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        a {
-            text-decoration: none;
-        }
-
-        /* Navigation Bar */
-        header {
-            background: #111c32;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #263449;
-        }
-
-        .navbar {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 24px;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: #38bdf8;
-        }
-
-        .navbar ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .navbar ul a {
-            color: #cbd5e1;
-            transition: 0.3s;
-        }
-
-        .navbar ul a:hover {
-            color: #38bdf8;
-        }
-
-        /* Home Section */
-        .home {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 10%;
-            background: radial-gradient(circle at top right, #183657, #0f172a 65%);
-        }
-
-        .home-content {
-            max-width: 850px;
-        }
-
-        .welcome {
-            color: #38bdf8;
-            font-weight: bold;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
-
-        .home h1 {
-            font-size: clamp(32px, 5vw, 52px);
-            line-height: 1.3;
-            margin-bottom: 15px;
-        }
-
-        .home h1 span {
-            color: #38bdf8;
-        }
-
-        .home h2 {
-            color: #cbd5e1;
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-
-        .home-content > p:not(.welcome) {
-            color: #cbd5e1;
-            margin-bottom: 25px;
-        }
-
-        .home-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #38bdf8;
-            color: #0f172a;
-            border-radius: 7px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: white;
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
-
-        /* Common Sections */
-        .section {
-            padding: 75px 8%;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 34px;
-            color: #38bdf8;
-            margin-bottom: 20px;
-        }
-
-        .section-description {
-            color: #cbd5e1;
-            margin-bottom: 35px;
-        }
-
-        .dark-section {
-            background: #111c32;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 850px;
-            margin: 30px auto 0;
-        }
-
-        .about-card {
-            padding: 30px;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-        }
-
-        .about-card h3 {
-            color: #38bdf8;
-            margin-bottom: 15px;
-        }
-
-        .about-card p {
-            color: #cbd5e1;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            max-width: 1000px;
-            margin: 35px auto 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .skill-card {
-            padding: 20px 10px;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            color: #38bdf8;
-            border-color: #38bdf8;
-            transform: translateY(-5px);
-        }
-
-        /* Projects Section */
-        .project-container {
-            max-width: 1100px;
-            margin: 35px auto 0;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 25px;
-            text-align: left;
-        }
-
-        .project-card {
-            background: #1e293b;
-            padding: 28px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-            border-color: #38bdf8;
-            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.12);
-        }
-
-        .project-card h3 {
-            color: #38bdf8;
-            font-size: 21px;
-            margin-bottom: 12px;
-        }
-
-        .project-card p {
-            color: #cbd5e1;
-            font-size: 14px;
-            margin-bottom: 12px;
-            overflow-wrap: anywhere;
-        }
-
-        .project-card strong {
-            color: white;
-        }
-
-        .project-btn {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 9px 18px;
-            background: #38bdf8;
-            color: #0f172a;
-            font-weight: bold;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .project-btn:hover {
-            background: white;
-        }
-
-        /* Education Section */
-        .education-container {
-            max-width: 900px;
-            margin: 35px auto 0;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .education-card {
-            text-align: left;
-            padding: 25px;
-            background: #1e293b;
-            border-left: 4px solid #38bdf8;
-            border-radius: 8px;
-        }
-
-        .education-card h3 {
-            color: #38bdf8;
-            margin-bottom: 12px;
-        }
-
-        .education-card p {
-            color: #cbd5e1;
-            margin-bottom: 8px;
-        }
-
-        /* Contact Section */
-        .contact-card {
-            max-width: 650px;
-            margin: 30px auto 0;
-            padding: 28px;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            text-align: left;
-        }
-
-        .contact-card p {
-            margin: 12px 0;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-card a {
-            color: #38bdf8;
-        }
-
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 22px;
-            background: #080f1f;
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar ul {
-                justify-content: center;
-            }
-
-            .skills-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .home {
-                min-height: auto;
-                padding: 70px 7%;
-            }
-
-            .home h2 {
-                font-size: 18px;
-            }
-
-            .section {
-                padding: 55px 6%;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .project-container,
-            .education-container {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar ul {
-                gap: 12px;
-            }
-
-            .navbar ul a {
-                font-size: 13px;
-            }
-
-            .skills-container {
-                gap: 12px;
-            }
-
-            .project-card {
-                padding: 22px;
-            }
-        }
-    </style>
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+</style>
 </head>
-
 <body>
+<header>
+  <nav>
+    <a href="#home">SENTHIL.</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar">
-            <h2 class="logo">MyPortfolio<span>.</span></h2>
+<main>
+  <section id="home">
+    <p>DATA ANALYST • ENTRY-LEVEL</p>
+    <h1>Hi, I'm Karpaga Senthil Manikandan P</h1>
+    <p>
+      Electronics and Communication Engineering graduate
+      developing skills in Data Analytics, Python, SQL,
+      Excel, Power BI, and Generative AI.
+    </p>
+    <a href="#projects">Explore Projects</a>
+    <a href="resume.pdf" target="_blank">View Resume</a>
+  </section>
 
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm building my career in Data Analytics through
+      technical learning and practical projects.
+    </p>
+  </section>
 
-    <!-- Home -->
-    <section id="home" class="home">
-        <div class="home-content">
-            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <p>Python · SQL · MySQL · Excel · Power BI · Data Analysis</p>
+  </section>
 
-            <h1>Hi, I'm <span>Karpaga Senthil Manikandan</span></h1>
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <h3>Mobile Recharge Billing System</h3>
+    <p>Python application using object-oriented programming,
+    recharge plan selection, GST calculation, and billing.</p>
 
-            <h2>ECE Student | Data Science & AI Enthusiast</h2>
+    <h3>Food Delivery Data Analysis</h3>
+    <p>Exploring order trends, delivery patterns, and business insights.</p>
+  </section>
 
-            <p>
-                I am passionate about technology, data analysis,
-                artificial intelligence, and building innovative projects.
-                I enjoy learning new skills and solving real-world problems.
-            </p>
+  <section id="education">
+    <h2>Education</h2>
+    <p>BE – Electronics and Communication Engineering</p>
+  </section>
 
-            <div class="home-buttons">
-                <a href="#projects" class="btn">View My Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-        <h2 class="section-title">About Me</h2>
-
-        <div class="about-content">
-            <div class="about-card">
-                <h3>Who Am I?</h3>
-                <p>
-                    I am an Electronics and Communication Engineering
-                    student interested in Data Science, Generative AI,
-                    Machine Learning, and software development. I am
-                    developing my technical knowledge through practical
-                    projects and continuous learning.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section dark-section">
-        <h2 class="section-title">My Skills</h2>
-
-        <div class="skills-container">
-            <div class="skill-card">Python</div>
-            <div class="skill-card">HTML & CSS</div>
-            <div class="skill-card">SQL</div>
-            <div class="skill-card">Excel</div>
-            <div class="skill-card">Power BI</div>
-            <div class="skill-card">Pandas</div>
-            <div class="skill-card">Machine Learning</div>
-            <div class="skill-card">Generative AI</div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-        <h2 class="section-title">My Projects</h2>
-
-        <p class="section-description">
-            Here are some of the projects I have worked on.
-        </p>
-
-        <div class="project-container">
-
-            <div class="project-card">
-                <h3>Data Analysis Project</h3>
-                <p>
-                    Analyzed data using Python, Excel, and Power BI
-                    to identify trends and generate useful insights.
-                </p>
-                <p><strong>Technologies:</strong> Python, Excel, Power BI</p>
-                <a href="#" class="project-btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Machine Learning Project</h3>
-                <p>
-                    Developed a machine learning model to analyze
-                    datasets and make predictions.
-                </p>
-                <p><strong>Technologies:</strong> Python, Pandas, Scikit-learn</p>
-                <a href="#" class="project-btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <h3>AI and Deep Learning Project</h3>
-                <p>
-                    Built a neural network model to learn patterns
-                    from data and classify input samples.
-                </p>
-                <p><strong>Technologies:</strong> Python, TensorFlow, Keras</p>
-                <a href="#" class="project-btn">View Project</a>
-            </div>
-
-            <div class="project-card">
-                <h3>Clothing Store Website</h3>
-                <p>
-                    Designed a clothing website where customers can
-                    explore collections and customize T-shirt designs.
-                </p>
-                <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
-                <a href="#" class="project-btn">View Project</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="section dark-section">
-        <h2 class="section-title">Education & Courses</h2>
-
-        <div class="education-container">
-
-            <div class="education-card">
-                <h3>B.E. Electronics and Communication Engineering</h3>
-                <p>Undergraduate Degree</p>
-                <p>Interested in electronics, programming, and AI technologies.</p>
-            </div>
-
-            <div class="education-card">
-                <h3>Data Science with Generative AI</h3>
-                <p>Besant Technologies, Siruseri</p>
-                <p>Learning data analysis, machine learning, and Generative AI.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-        <h2 class="section-title">Contact Me</h2>
-
-        <p class="section-description">
-            Feel free to contact me for opportunities and collaboration.
-        </p>
-
-        <div class="contact-card">
-            <p>
-                <strong>Email:</strong>
-                <a href="mailto:yourmail@example.com">yourmail@example.com</a>
-            </p>
-
-            <p>
-                <strong>LinkedIn:</strong>
-                <a href="https://www.linkedin.com/" target="_blank"
-                   rel="noopener noreferrer">Visit My LinkedIn</a>
-            </p>
-
-            <p>
-                <strong>GitHub:</strong>
-                <a href="https://github.com/" target="_blank"
-                   rel="noopener noreferrer">Visit My GitHub</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Karpaga Senthil Manikandan. All Rights Reserved.</p>
-    </footer>
-
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Use your resume's email address and professional links here.</p>
+  </section>
+</main>
 </body>
 </html>
